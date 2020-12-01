@@ -31,8 +31,13 @@ func NewWithInitialDelay(d, dl time.Duration) Ticker {
 // Tick : test if the ticker has ticked
 func (t Ticker) Tick() bool {
 	if time.Now().After(t.nextTick) {
-		t.nextTick = time.Now().Add(t.tickDuration)
+		t.Reset()
 		return true
 	}
 	return false
+}
+
+// Reset : restart tick delay
+func (t Ticker) Reset() {
+	t.nextTick = time.Now().Add(t.tickDuration)
 }
