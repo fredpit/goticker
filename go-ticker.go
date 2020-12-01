@@ -23,7 +23,7 @@ func New(d time.Duration) Ticker {
 // NewWithInitialDelay : create a ticler with an initial delay
 func NewWithInitialDelay(d, dl time.Duration) Ticker {
 	return Ticker{
-		nextTick:     time.Now().Add(d),
+		nextTick:     time.Now().Add(dl),
 		tickDuration: d,
 	}
 }
